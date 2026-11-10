@@ -97,7 +97,24 @@ body:has(#exam.on #tf:not([hidden])) .toTop{bottom:calc(64px + env(safe-area-ins
 @media (max-width:420px){.xw{display:none}.brand b{font-size:.92rem}.brand small{font-size:.72rem}nav.tabs button{font-size:.86rem}}
 @media (max-width:380px){.brand b{font-size:.84rem}.brand small{font-size:.68rem}}
 @media (min-width:700px){:root{--fs:17.5px} .chips{flex-wrap:wrap} main{padding:20px 20px 80px} .score{margin-left:-20px;margin-right:-20px}}
-@media print{header.top,.chips,.toTop,.sizer,.subtabs,.score{display:none} section.view{display:block} body{background:#fff}}
+.printonly{display:none}
+#tfPrint h2{break-after:avoid}
+#tfPrint .pq{break-inside:avoid;border-bottom:1px solid var(--line);padding:6px 0}
+#tfPrint .pq .st{font-weight:600;font-size:1rem}
+#tfPrint .pq .an{font-size:.95rem;margin-top:2px}
+#tfPrint .pq .an b.t{color:var(--ok)} #tfPrint .pq .an b.f{color:var(--bad)}
+#tfPrint .traps{break-inside:avoid}
+@media print{header.top,.chips,.toTop,.sizer,.subtabs,.score{display:none} section.view{display:block} body{background:#fff}
+ :root{--fs:12.5px;--ink:#000;--muted:#444;--card:#fff;--bg:#fff;--line:#ccc;--ok:#1d7a3a;--bad:#b42318;--ok-soft:#e5f4ea;--bad-soft:#fdecea;--accent:#0f6e6e;--accent-soft:#e3f1f0;--star:#9a5b00;--star-soft:#fff3dc}
+ main{max-width:none;padding:0}
+ #tf[hidden],#wq[hidden]{display:block!important}
+ #tfList,#tfTraps,#tf>.row,#wq>.row,.reveal{display:none!important}
+ .printonly{display:block!important}
+ .selftest article.wq .ans,.selftest article.wq .hook{display:block!important}
+ article.wq,section.chap,.card{break-inside:avoid-page}
+ body.printTF main>section.view:not(#exam),body.printTF #wq,body.printTF .subtabs{display:none!important}
+ *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
 </style>
 </head>
 <body>
@@ -408,7 +425,7 @@ body:has(#exam.on #tf:not([hidden])) .toTop{bottom:calc(64px + env(safe-area-ins
   <div class="subtabs"><button class="chip on" data-sub="tf">True / False drill</button><button class="chip" data-sub="wq">Written answers</button></div>
   <div id="tf">
     <div class="chips" id="tfChips"></div>
-    <div class="row" style="margin:6px 0"><button class="btn ghost" id="tfShuffle">Shuffle</button><button class="btn ghost" id="tfWrong">Retry my mistakes</button><button class="btn ghost" id="tfReset">Reset</button></div>
+    <div class="row" style="margin:6px 0"><button class="btn ghost" id="tfShuffle">Shuffle</button><button class="btn ghost" id="tfWrong">Retry my mistakes</button><button class="btn ghost" id="tfReset">Reset</button><button class="btn" id="tfPrintBtn">Print / PDF with answers</button></div>
     <div id="tfTraps"><p class="muted" id="tfTrapHint">Tip: pick a chapter above to see its common traps before you answer.</p>
 <div class="traps" data-ch="1"><h4>Common traps in Chapter 1</h4><ul><li>The five types are exporting, licensing, strategic alliances, acquisitions and FDI. Franchising is NOT one of them (it comes later, as an entry mode).</li>
 <li>Only TWO forces hold firms back: differences between markets, and government control of markets.</li>
@@ -447,6 +464,7 @@ body:has(#exam.on #tf:not([hidden])) .toTop{bottom:calc(64px + env(safe-area-ins
 <li>Customer service abroad is usually LOWER than at home, not higher.</li></ul></div>
     </div>
     <div id="tfList"></div>
+    <div id="tfPrint" class="printonly"></div>
     <div class="score"><span id="tfScore">0 / 0 answered</span><span id="tfPct"></span></div>
   </div>
   <div id="wq" hidden>
@@ -798,6 +816,24 @@ $("#tfShuffle").onclick=()=>{for(let i=order.length-1;i>0;i--){const j=Math.floo
 $("#tfWrong").onclick=()=>{onlyWrong=!onlyWrong;render();scrollTo(0,0)};
 $("#tfReset").onclick=()=>{if(confirm("Clear all True/False answers?")){answers={};store.set("tf",answers);onlyWrong=false;order=TF.map(q=>q.i);render()}};
 render();
+
+/* printable answer key: every statement with its answer and reason, grouped by chapter */
+(function(){
+  const box=$("#tfPrint");let n=0;
+  const head=document.createElement("div");
+  head.innerHTML='<h1>International Marketing: True/False with answers</h1><p class="muted">All '+TF.length+' statements from the 7 chapters, each with the answer and the reason, plus the common traps of each chapter.</p>';
+  box.appendChild(head);
+  Object.keys(CH).forEach(k=>{
+    const qs=TF.filter(q=>String(q.ch)===k);if(!qs.length)return;
+    const h=document.createElement("h2");h.textContent=CH[k]+" ("+qs.length+")";box.appendChild(h);
+    const tr=$('#tfTraps .traps[data-ch="'+k+'"]');if(tr){const c=tr.cloneNode(true);c.hidden=false;box.appendChild(c)}
+    qs.forEach(q=>{n++;const d=document.createElement("div");d.className="pq";
+      d.innerHTML='<div class="st"></div><div class="an"><b></b> <span></span></div>';
+      $(".st",d).textContent=n+". "+q.s;const b=$("b",d);b.textContent=q.a?"TRUE.":"FALSE.";b.className=q.a?"t":"f";$("span",d).textContent=q.why;box.appendChild(d)});
+  });
+})();
+$("#tfPrintBtn").onclick=()=>{document.body.classList.add("printTF");setTimeout(()=>print(),50)};
+addEventListener("afterprint",()=>document.body.classList.remove("printTF"));
 
 /* back to top */
 const tt=$("#toTop");addEventListener("scroll",()=>{tt.style.display=scrollY>600?"block":"none"},{passive:true});tt.onclick=()=>scrollTo({top:0,behavior:"smooth"});
