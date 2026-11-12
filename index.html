@@ -77,6 +77,16 @@ article.wq h3{margin-top:.4em}
 .selftest article.wq.open .ans,.selftest article.wq.open .hook{display:block}
 .reveal{display:none}
 .selftest .reveal{display:inline-flex;margin:4px 0 8px}
+details.plain{border:1px dashed var(--accent);border-radius:8px;margin:8px 0 4px;background:var(--bg)}
+details.plain>summary{cursor:pointer;padding:7px 10px;font:600 .9rem system-ui,sans-serif;color:var(--accent);list-style:none}
+details.plain>summary::-webkit-details-marker{display:none}
+details.plain>summary::before{content:"\25B8  "}
+details.plain[open]>summary::before{content:"\25BE  "}
+.plain-body{padding:0 12px 6px}
+.plain-body .ex{font-weight:700;color:var(--star)}
+.plain-body .rem{background:var(--accent-soft);border-radius:6px;padding:5px 9px;font-weight:600}
+.selftest article.wq details.plain{display:none}
+.selftest article.wq.open details.plain{display:block}
 /* tf */
 .tfq{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0}
 .tfq .meta{font-size:.75rem;color:var(--muted)}
@@ -112,6 +122,7 @@ body:has(#exam.on #tf:not([hidden])) .toTop{bottom:calc(64px + env(safe-area-ins
  .printonly{display:block!important}
  .selftest article.wq .ans,.selftest article.wq .hook{display:block!important}
  article.wq,section.chap,.card{break-inside:avoid-page}
+ details.plain{display:none!important}
  body.printTF main>section.view:not(#exam),body.printTF #wq,body.printTF .subtabs{display:none!important}
  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
@@ -498,6 +509,13 @@ body:has(#exam.on #tf:not([hidden])) .toTop{bottom:calc(64px + env(safe-area-ins
 <p>In short, beginners select by chance and with little data, while experienced firms select by system, but both must link the choice to their goals and resources.</p>
 </div>
 <p class="hook">Memory hook: beginner = "chance, one by one, few, screen"; expert = "system, many at once, spread, grid".</p>
+<details class="plain"><summary>Plain English (for a cold reader)</summary>
+<div class="plain-body"><p><b>What the question really asks:</b> how does a company decide which foreign country to sell in, and why is this harder for a newcomer than for a veteran?</p>
+<p><b>The beginner.</b> <span class="ex">Example:</span> a small Egyptian juice maker has never exported. One day a buyer in Kenya emails asking for a shipment, so Kenya becomes its first foreign market. Nobody studied Kenya; the chance came to the firm. That is <b>opportunistic</b> selection (reacting to luck). Because the firm is small, with few managers, little money and little data, it enters <b>one country at a time</b> and stays in <b>a few</b> countries. It cannot afford a big study of every country, so it uses <b>screening</b>: start with all countries and cross out the unsuitable ones step by step (too poor, too far, too risky) until a few are left.</p>
+<p><b>The experienced firm.</b> A big company that already sells abroad searches <b>on purpose</b> (<b>systematic</b> selection). It has the people and the money to enter <b>several countries at once</b> and to spread over <b>many</b>. It can afford the <b>grid</b>: a table that scores every country on two things, "how attractive is this market?" and "how strong are we there?", then picks the best mix.</p>
+<p><b>What steers both of them:</b> their goals (win a strong position, spread risk so one bad country does not sink the firm, and weigh money invested against profit), their size, their strategy (for example getting rid of extra production) and whether information about the market even exists.</p>
+<p class="rem">To remember: beginners pick by chance, slowly and with little data; experienced firms pick by system, widely and with more data.</p>
+</div></details>
 </article>
 
 <article class="wq" id="q2">
@@ -517,6 +535,19 @@ body:has(#exam.on #tf:not([hidden])) .toTop{bottom:calc(64px + env(safe-area-ins
 <p>The countries that survive all filters form a portfolio (a chosen set) of the most attractive markets, ranked in a country priority list.</p>
 </div>
 <p class="hook">Memory hook: "General country, then product market, then competition, then barriers" = 4 filters from wide to narrow.</p>
+<details class="plain"><summary>Plain English (for a cold reader)</summary>
+<div class="plain-body"><p><b>What the question really asks:</b> how does a firm decide whether a country is worth entering?</p>
+<p><b>The idea is a funnel (a series of sieves).</b> Think of hiring: you get 200 CVs, first you drop everyone without the right degree, then you look at experience, then you interview, and finally one or two people are left. Choosing a country works the same way: all countries go in at the top, and four "filters" remove the weak ones until a short ranked list remains.</p>
+<ol>
+<li><b>Filter 1, the country in general (macro level = the big picture):</b> is the economy healthy, how many people live there, how rich are they, is the government stable, are the laws friendly, what is the geography and climate? This is <b>market potential</b>: how much could be sold there at all.</li>
+<li><b>Filter 2, the market for MY product:</b> how big is the market for this kind of product, is it growing, and is the product new there or already old?</li>
+<li><b>Filter 3, competition (micro level = the close-up):</b> who already sells there, how strong are they, and how much could we realistically sell and earn? This is <b>competitive intensity</b>: how crowded the market is.</li>
+<li><b>Filter 4, entry barriers:</b> the obstacles to getting in. Will the culture accept the product, how hard and costly is entry, and how high are the taxes and duties (a <b>duty</b> is a tax charged on imported goods)?</li>
+</ol>
+<p><b>Trading blocs:</b> a trading bloc is a club of countries that trade with each other at low or zero import tax, such as the EU. If a country is in a bloc, entering it can open the door to the whole club, which makes it more attractive.</p>
+<p><span class="ex">Example:</span> an Egyptian paint company looking at Africa might drop very small or unstable countries first, then countries where little paint is sold, then countries full of strong rivals, and finally countries with very high import duties. What is left is its priority list.</p>
+<p class="rem">To remember: four sieves from wide to narrow: the country, the product's market, the competition, the barriers.</p>
+</div></details>
 </article>
 
 <article class="wq" id="q3">
@@ -539,6 +570,20 @@ body:has(#exam.on #tf:not([hidden])) .toTop{bottom:calc(64px + env(safe-area-ins
 <p>Beginner firms lean more on external, often free, sources; experienced firms also have rich internal knowledge.</p>
 </div>
 <p class="hook">Memory hook: "Inside = what we know + our data; Outside = read it, ask government, ask associations and agencies".</p>
+<details class="plain"><summary>Plain English (for a cold reader)</summary>
+<div class="plain-body"><p><b>What the question really asks:</b> where does a company get the facts it needs to pick a foreign market?</p>
+<p>There are only two places: <b>inside</b> the company and <b>outside</b> it.</p>
+<p><b>Inside (internal sources):</b> what the staff already know (a manager who worked in the Gulf for years, a salesperson who visited a trade fair) and the company's own records (past sales, enquiries from foreign buyers, costs).</p>
+<p><b>Outside (external sources):</b></p>
+<ul>
+<li><b>Published references:</b> reference books and directories that list countries, companies and market facts.</li>
+<li><b>Trade journals, magazines and newspapers:</b> a trade journal is a specialist magazine for one industry (for example <i>Oil &amp; Gas Journal</i> for petroleum), full of market news, prices and who is expanding where.</li>
+<li><b>Government or industry advisers:</b> official bodies whose job is to help firms export, such as an export promotion council.</li>
+<li><b>Trade associations, business clubs, consultants and market research agencies:</b> groups that collect information, or companies you pay to research a market for you.</li>
+</ul>
+<p>A beginner firm knows little itself, so it relies mostly on outside sources, many of them free. An experienced firm also has a lot of knowledge inside.</p>
+<p class="rem">To remember: inside = what we know and what our records show; outside = what we read, who advises us, and who we pay.</p>
+</div></details>
 </article>
 
 <h2 class="wq-ch">Chapter 8: Modifying Products for International Markets</h2>
@@ -564,6 +609,18 @@ body:has(#exam.on #tf:not([hidden])) .toTop{bottom:calc(64px + env(safe-area-ins
 </ol>
 </div>
 <p class="hook">Memory hook: strategies "Diffuse, Redefine, Leverage, Understand"; life cycle "Local, International, Mature, Imitate, Reverse".</p>
+<details class="plain"><summary>Plain English (for a cold reader)</summary>
+<div class="plain-body"><p><b>What the question really asks:</b> how does a product travel from its home country into other countries?</p>
+<p>Two words do the work. <b>Diffusion</b> is the spreading of a product from country to country, like news spreading from person to person. <b>Adoption</b> is the moment people in a new country actually start buying it.</p>
+<p><b>What the firm does to help the spread:</b></p>
+<ul>
+<li><b>Redefine the business:</b> rethink what the firm really sells so the product fits new markets.</li>
+<li><b>Leverage capabilities:</b> "leverage" means using what you already have to get more. The firm uses its existing factories, partners, networks, knowledge and past development spending, so entering a new country costs less.</li>
+<li><b>Understand the product market structure:</b> in each country, learn what people use the product for, what they see as its competitors, and how to brand it there.</li>
+</ul>
+<p><b>The international product life cycle (five stages).</b> A classic illustration is the television set: (1) <b>local innovation</b>, it is invented and sold at home; (2) <b>international innovation</b>, it starts being exported; (3) <b>maturity</b>, demand abroad grows and settles; (4) <b>worldwide imitation</b>, factories in other countries learn to make it, often cheaper; (5) <b>reversal</b>, the inventing country ends up importing it from the copiers. That last twist is the one examiners love.</p>
+<p class="rem">To remember: the product is born at home, travels abroad, gets copied, and finally comes back home as an import.</p>
+</div></details>
 </article>
 
 <article class="wq" id="q5">
@@ -581,6 +638,17 @@ body:has(#exam.on #tf:not([hidden])) .toTop{bottom:calc(64px + env(safe-area-ins
 <p>If a product offers a clear benefit, suits the local segment, technology and value chain, and arrives at the right life-cycle stage, adoption is faster.</p>
 </div>
 <p class="hook">Memory hook: "Benefits, Segments, Technology, Value chain, Life cycle" = B-S-T-V-L, "Buy Some Tea, Very Lovely".</p>
+<details class="plain"><summary>Plain English (for a cold reader)</summary>
+<div class="plain-body"><p><b>What the question really asks:</b> why do people in one country rush to buy a product while people in another country ignore it?</p>
+<ol>
+<li><b>Customer benefits:</b> does the product solve a real problem for people THERE? An air conditioner is a must in Cairo and a waste of money in a cold country.</li>
+<li><b>Customer segments:</b> a segment is one group of similar buyers. The group that buys your product at home may not exist abroad, so you may need to sell to a different group.</li>
+<li><b>Technology:</b> the product may be too advanced or too simple for the country. <span class="ex">Example:</span> a machine that needs highly trained engineers and a stable power grid will not catch on where both are scarce.</li>
+<li><b>Value chain:</b> all the steps and partners needed to make the product and get it to the customer: suppliers, transport, shops, repair services. If these are missing abroad, the product struggles. <span class="ex">Example:</span> an electric car will not sell where there are no charging stations.</li>
+<li><b>Product life cycle:</b> the product may be brand new in one country and old news in another, so people are at different levels of readiness to buy it.</li>
+</ol>
+<p class="rem">To remember: Benefit, Segment, Technology, Value chain, Life cycle ("Buy Some Tea, Very Lovely"). The better the fit on all five, the faster people adopt it.</p>
+</div></details>
 </article>
 
 <article class="wq" id="q6">
@@ -602,6 +670,23 @@ body:has(#exam.on #tf:not([hidden])) .toTop{bottom:calc(64px + env(safe-area-ins
 <p>Also consider the general modification factors: product standards and regulations, measurement and calibration, trademarks, climate and usage, language and symbolism, style, design and taste, technology and performance standards, and warranty and servicing.</p>
 </div>
 <p class="hook">Memory hook: "Skills, Labour, Literacy, Income, Interest, Maintenance, Climate, Isolation, Standards" = 9 "levels and conditions" of the poorer market.</p>
+<details class="plain"><summary>Plain English (for a cold reader)</summary>
+<div class="plain-body"><p><b>What the question really asks:</b> if you design a product for a poorer country, what must you think about?</p>
+<p>Imagine you are designing a <b>water pump for villages</b>. Robinson's nine factors become simple questions:</p>
+<ol>
+<li><b>Technical skills:</b> can local people operate and repair it? Then keep it simple.</li>
+<li><b>Labour costs:</b> if workers are cheap, a hand-operated pump may make more sense than an automatic one.</li>
+<li><b>Literacy:</b> if many people cannot read, use pictures for the instructions.</li>
+<li><b>Income:</b> people have little money, so make it cheaper, smaller or simpler.</li>
+<li><b>Interest rates:</b> if loans are expensive, people cannot buy in instalments, so the price must be low enough to pay at once.</li>
+<li><b>Maintenance:</b> it may get little care, so make it tough and easy to service.</li>
+<li><b>Climate:</b> heat, dust and humidity must not damage it.</li>
+<li><b>Isolation:</b> villages far from spare parts and repair shops need a product that keeps working on its own.</li>
+<li><b>Different standards:</b> the country's technical and legal rules may differ from home (voltage, plugs, safety rules).</li>
+</ol>
+<p>Beyond poorer countries, any product may need changes for regulations, units of measurement, trademarks, language and symbols on the pack, local taste and style, and warranty and servicing.</p>
+<p class="rem">To remember: design for the users' skills, pockets, reading level, weather and distance from help.</p>
+</div></details>
 </article>
 
 <article class="wq" id="q7">
@@ -618,6 +703,17 @@ body:has(#exam.on #tf:not([hidden])) .toTop{bottom:calc(64px + env(safe-area-ins
 </table>
 </div>
 <p class="hook">Memory hook: "I-F-M-U": Individual (own name), Family (one name), Multi (many rivals), Umbrella (shelter under a star brand).</p>
+<details class="plain"><summary>Plain English (for a cold reader)</summary>
+<div class="plain-body"><p><b>What the question really asks:</b> how should a company name its products when it sells in many countries?</p>
+<p>A <b>brand</b> is the name, logo or design that shows who made a product and sets it apart from rivals. There are four ways to organise brands:</p>
+<ul>
+<li><b>Individual brands, each product its own name.</b> <span class="ex">Example:</span> Procter &amp; Gamble sells Pampers, Gillette and Ariel; most shoppers do not know they come from one company. Plus: each product gets the name that suits it, and if one fails or has a scandal the others are untouched. Minus: every name starts from zero, so each needs expensive advertising.</li>
+<li><b>Family brand, the company name on everything.</b> <span class="ex">Example:</span> Samsung TV, Samsung phone, Samsung washing machine. Plus: people already trust the name, so a new product sells quickly and launches cheaply. Minus: one bad product hurts all of them.</li>
+<li><b>Multibrand, several competing brands in the same category.</b> <span class="ex">Example:</span> Unilever sells both Dove and Lux soap. Plus: two brands take two places on the shelf, a shopper who switches from one to the other still pays the same company, the two brand teams compete and stay sharp, and each brand can aim at a different group of buyers.</li>
+<li><b>Umbrella, a new product shelters under a famous name.</b> The slide example: SAAB reminded car buyers that it also builds jet fighters, so its cars borrowed that image of top engineering.</li>
+</ul>
+<p class="rem">To remember: Individual = separate names; Family = company name on all; Multi = rival brands, same owner; Umbrella = borrow a star's reputation.</p>
+</div></details>
 </article>
 
 <h2 class="wq-ch">Chapter 10: Promotion in International Marketing</h2>
@@ -647,6 +743,21 @@ body:has(#exam.on #tf:not([hidden])) .toTop{bottom:calc(64px + env(safe-area-ins
 </ol>
 </div>
 <p class="hook">Memory hook: constraints "Language, Acceptability, Media, Intermediaries, Competitors, Government"; factors "Culture, Language, Education, Economy, Media, Government".</p>
+<details class="plain"><summary>Plain English (for a cold reader)</summary>
+<div class="plain-body"><p><b>What the question really asks:</b> what makes advertising and promotion harder abroad?</p>
+<p>Two lists. <b>Constraints</b> are walls that limit what you can do. <b>Factors</b> are things that change how your message is understood.</p>
+<p><b>Constraints (the walls):</b> the language does not translate well; the style of promotion is not acceptable locally; the TV channel, newspaper or website you want does not exist there; there is no good ad agency or distributor to help; competitors' messages drown yours out; and the government forbids certain ads (many countries, for example, restrict tobacco advertising).</p>
+<p><b>Factors (what shapes the message):</b></p>
+<ul>
+<li><b>Culture:</b> in a <b>high-context</b> culture, much of the meaning comes from the setting, tone and relationship rather than the words, so an ad should hint and suggest. In a <b>low-context</b> culture, the words carry the meaning, so the ad should say things plainly.</li>
+<li><b>Language:</b> translating the words is not enough; the meaning can change or get lost. A clever slogan in English can sound odd or rude in Arabic.</li>
+<li><b>Education:</b> where many people cannot read, use pictures, sound and video instead of text.</li>
+<li><b>Economic development:</b> decides how many people can afford the product and how fancy the message should be.</li>
+<li><b>Media infrastructure:</b> which media exist, how many people they reach, and what they cost.</li>
+<li><b>Government regulation:</b> rules on what product can be advertised, what may be said, by whom, how, when and where.</li>
+</ul>
+<p class="rem">To remember: constraints are the walls around you; factors are the lenses your message passes through. Language and government appear in both lists.</p>
+</div></details>
 </article>
 
 <h2 class="wq-ch">Chapter 11: International Pricing for Profit</h2>
@@ -668,6 +779,19 @@ body:has(#exam.on #tf:not([hidden])) .toTop{bottom:calc(64px + env(safe-area-ins
 <p>So a correct international price is needed for profit, demand and image, and setting it requires research.</p>
 </div>
 <p class="hook">Memory hook: "Revenue, Demand, Value, Reference, Quick change, Bundle, Complex".</p>
+<details class="plain"><summary>Plain English (for a cold reader)</summary>
+<div class="plain-body"><p><b>What the question really asks:</b> why does getting the price right matter so much abroad?</p>
+<ul>
+<li><b>It is the only part of marketing that brings money in.</b> Making the product, advertising it and shipping it all cost money; the price is where money comes back.</li>
+<li><b>It moves demand.</b> Usually higher price means fewer buyers, lower price means more.</li>
+<li><b>It must match perceived value:</b> what the buyer feels the product is worth.</li>
+<li><b>Reference prices:</b> buyers carry a "normal price" in their heads. If you expect a coffee to cost about 50 pounds, 200 feels expensive, and 5 makes you wonder what is wrong with it. That is why price is often read as a sign of quality.</li>
+<li><b>It can change fast:</b> unlike the product or the distribution network, a price can be changed at short notice, unless the government regulates it.</li>
+<li><b>It is a bundle:</b> the price pays for more than the item: delivery, warranty, service and other extras.</li>
+<li><b>It is more complicated abroad:</b> the firm must fit its overall strategy, local competitors, local demand and local government rules, plus costs it cannot control such as import duties.</li>
+</ul>
+<p class="rem">To remember: price is the money maker, the demand dial and the quality signal, and abroad it is harder to set.</p>
+</div></details>
 </article>
 
 <article class="wq" id="q10">
@@ -684,6 +808,17 @@ body:has(#exam.on #tf:not([hidden])) .toTop{bottom:calc(64px + env(safe-area-ins
 <p>Related to global pricing is <strong>transfer pricing</strong>: the price one part of a multinational charges another part in a different country. For example, goods are sent at a low price from a subsidiary in a high-tax country to one in a low-tax country, so little profit (and tax) appears in the high-tax country. It happens with international investment, not with simple exporting.</p>
 </div>
 <p class="hook">Memory hook: "Same, Different, Mixed" + "transfer = moving profit to the low-tax side".</p>
+<details class="plain"><summary>Plain English (for a cold reader)</summary>
+<div class="plain-body"><p><b>What the question really asks:</b> should a company charge the same price everywhere, or a different price in each country?</p>
+<p>Three options, from "one price" to "many prices":</p>
+<ul>
+<li><b>Standard world price (global):</b> the same price everywhere, changed only for exchange rates and shipping. Simple, and customers cannot buy cheap in one country and resell in another, but it ignores that people in poorer countries can pay less.</li>
+<li><b>Market differentiated price (local):</b> each country gets its own price based on local demand, competition and income. Fits each market, but harder to manage.</li>
+<li><b>Modified pricing policy (a mix):</b> head office sets a base price or a range, and each country may adjust within it.</li>
+</ul>
+<p><b>Transfer pricing</b> is a different thing: the price one branch of a multinational charges ANOTHER branch of the same company in another country. A simple illustration: a group has a factory in a country with high company tax and a sales branch in a country with low tax. If the factory "sells" its goods to the sister branch very cheaply, little profit appears in the high-tax country and most appears in the low-tax one, so the group pays less tax overall. This needs branches abroad, so it does not happen with simple exporting.</p>
+<p class="rem">To remember: global = same price, local = different prices, modified = a mix; transfer pricing = moving profit between your own branches.</p>
+</div></details>
 </article>
 
 <h2 class="wq-ch">Chapter 12: Effective International Distribution</h2>
@@ -702,6 +837,18 @@ body:has(#exam.on #tf:not([hidden])) .toTop{bottom:calc(64px + env(safe-area-ins
 <p>The choice depends on six strategy factors: <strong>cost, control, commitment, nature of the market, nature of the product or service, and the firm's objective</strong>.</p>
 </div>
 <p class="hook">Memory hook: "Merchant, Myself, My know-how, Make it there"; choose by "3 Cs + market, product, objective".</p>
+<details class="plain"><summary>Plain English (for a cold reader)</summary>
+<div class="plain-body"><p><b>What the question really asks:</b> what routes can a company use to get its product to buyers in another country?</p>
+<p>A <b>distribution channel</b> is the route a product travels from the factory to the final user, like a pipeline with stations along the way. The routes, from least effort to most:</p>
+<ol>
+<li><b>Use an export merchant at home:</b> a trader in your own country buys your goods, becomes their owner, and ships them abroad himself. For you it feels like a normal home sale.</li>
+<li><b>Direct export:</b> you export yourself and appoint an <b>agent</b> or <b>distributor</b> in the foreign country to sell for you. This is the most common route for small and medium firms.</li>
+<li><b>Export your know-how instead of goods:</b> <b>licensing</b> lets a foreign firm use your technology or brand for a fee; <b>franchising</b> gives it your whole way of doing business to copy (think of a restaurant chain).</li>
+<li><b>Make it in the foreign country:</b> <b>assembly</b> (put parts together there, often in a special low-tax zone the government offers to attract investors); <b>contract manufacture</b> (pay a local factory to make it; the factory has no rights to the product); <b>joint venture</b> (share ownership with a local partner, so you have a say but not full control); <b>acquisition</b> (buy a local company or build your own plant, the most expensive); and <b>strategic alliances</b> (partnerships).</li>
+</ol>
+<p><b>How to choose:</b> cost, control, commitment (how much money and effort you tie up), the nature of the market, the nature of the product, and what the firm wants to achieve.</p>
+<p class="rem">To remember: sell to a merchant, sell it yourself, sell your know-how, or make it there.</p>
+</div></details>
 </article>
 
 <article class="wq" id="q12">
@@ -718,6 +865,19 @@ body:has(#exam.on #tf:not([hidden])) .toTop{bottom:calc(64px + env(safe-area-ins
 </ol>
 </div>
 <p class="hook">Memory hook: "Select, Appoint, Communicate, Motivate, then know the Wholesalers and Retailers" = the life of a partnership from hiring to ending.</p>
+<details class="plain"><summary>Plain English (for a cold reader)</summary>
+<div class="plain-body"><p><b>What the question really asks:</b> once a company has agents and distributors abroad, how does it manage them well?</p>
+<p>Think of it like <b>hiring and managing an employee</b> who works in another country. More than half of world trade goes through agents and distributors, so this matters.</p>
+<ol>
+<li><b>Selection (hiring):</b> choose the right partner carefully; a bad one can ruin your name in that market.</li>
+<li><b>Appointment (the contract):</b> sign a clear agreement saying exactly which products they sell and which area (territory) they cover.</li>
+<li><b>Communication and control (supervision):</b> keep in regular contact, check their results, and build a friendly working climate for the long term.</li>
+<li><b>Motivation and termination (keeping them keen, and ending properly):</b> make the deal "win-win", so both sides gain and neither tries to cheat the other, and if it must end, end it properly.</li>
+<li><b>Wholesaling and retailing (knowing the local shops):</b> understand the local middlemen. A <b>wholesaler</b> buys in bulk and sells to shops, and also transports, stores, finances and gathers information. A <b>retailer</b> is the shop that sells to the public; how big shops are and the role they play differ by country.</li>
+</ol>
+<p><span class="ex">Example:</span> an Egyptian food company appoints a distributor in Saudi Arabia for its biscuits in the Riyadh region only, calls every month to review sales, pays a good margin so the distributor pushes the product, and studies which supermarkets and small shops dominate there.</p>
+<p class="rem">To remember: hire, sign, supervise, motivate (or part ways), and know the local wholesalers and shops.</p>
+</div></details>
 </article>
 
 <article class="wq" id="q13">
@@ -737,6 +897,20 @@ body:has(#exam.on #tf:not([hidden])) .toTop{bottom:calc(64px + env(safe-area-ins
 <p>Channels are also compared on <strong>length</strong> (how many levels), <strong>width</strong> (how many intermediaries at each level), <strong>density</strong> (how much of the market is covered), <strong>alignment</strong> (who leads the channel) and <strong>logistics</strong> (how goods physically move). The rule: more control means more commitment of money and resources.</p>
 </div>
 <p class="hook">Memory hook: "the deeper you go (merchant to acquisition), the more control and the more money".</p>
+<details class="plain"><summary>Plain English (for a cold reader)</summary>
+<div class="plain-body"><p><b>What the question really asks:</b> list the ways of getting a product to foreign buyers and compare them.</p>
+<p><b>The key idea is one trade-off: control against commitment.</b> Control is how much say you have over how your product is sold. Commitment is how much money and effort you tie up. You cannot get high control cheaply.</p>
+<p>A simple picture is getting to work: a <b>taxi</b> is cheap to start with and needs no investment, but you do not control the route (that is the export merchant). <b>Hiring a driver</b> gives more say for more cost (agent or distributor). <b>Buying your own car</b> gives full control but a big upfront cost (acquisition or your own plant). The table above runs the same way, from the merchant (least control, least money) down to acquisition (most control, most money), with licensing, assembly and joint ventures in between.</p>
+<p><b>Channels are also described by five measures:</b></p>
+<ul>
+<li><b>Length:</b> how many steps between factory and buyer (factory to wholesaler to shop to customer is long).</li>
+<li><b>Width:</b> how many middlemen at each step (one distributor for the whole country is narrow).</li>
+<li><b>Density:</b> how much of the market you cover (in every corner shop, or only in big cities).</li>
+<li><b>Alignment:</b> who leads the channel and makes the decisions.</li>
+<li><b>Logistics:</b> how the goods physically move: shipping, storage, delivery.</li>
+</ul>
+<p class="rem">To remember: the deeper you go into the country, the more control you get and the more money you put in.</p>
+</div></details>
 </article>
     </div>
   </div>
